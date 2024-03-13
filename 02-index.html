@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    p {
+      font: 5em sans-serif;
+      border-style: solid;
+      border-width: 5px;
+      border: 10px;
+      border-color: brown;
+      align-content: center;
+      justify-content: center;
+      text-shadow: 2px 2px;
+      color: rgb(235, 202, 202);
+    }
+    div {
+      align-content: center;
+      border: 10px;
+    }
+  </style>
+
+  <body style="align-content: center; justify-content: center">
+    <div>
+      <p id="demo"></p>
+    </div>
+    <script>
+      const currentHour = new Date().getHours();
+      let greeting;
+      switch (true) {
+        case currentHour > 1 && currentHour < 12:
+          greeting = "Good morning";
+          break;
+        case currentHour >= 12 && currentHour < 16:
+          greeting = "Good afternoon";
+          break;
+        case currentHour > 16 && currentHour < 23:
+          greeting = "Good evening";
+          break;
+      }
+      console.log(greeting);
+      document.getElementById("demo").innerHTML = greeting;
+      document.querySelector(".demo").style.width = "15rem";
+    </script>
+  </body>
+</html>
