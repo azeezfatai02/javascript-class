@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form</title>
+    <link rel="stylesheet" href="05-form.css" />
+  </head>
+  <body>
+    <div class="second-division align-center" id="secondDivision">
+      <div class="w-85">
+        <div class="division-form">
+          <form id="myForm" method="post">
+            <input
+              class="form-input"
+              name="email"
+              type="text"
+              placeholder="Email address or phone number"
+              id="inputEmail"
+            />
+            <input
+              class="form-input"
+              name="password"
+              type="password"
+              placeholder="Password"
+              id="inputPassword"
+            />
+            <input type="submit" value="login" class="submit-button" />
+            <!-- <button
+              onclick="bntLogin()"
+              class="submit-button"
+              id="submitButton"
+              type="submit"
+            >
+              Login
+            </button> -->
+          </form>
+          <div class="division-forgotten-password">
+            <a class="forgotten-password-link" href="#">Forgotten Password?</a>
+            <p id="result"></p>
+          </div>
+          <div class="division-create-account">
+            <button class="create-account-button">Create new account</button>
+          </div>
+        </div>
+        <div class="text-center">
+          <p class="font-14">
+            <a class="create-page-link" href="#"><b>Create a page</b></a>
+            for a celebrity, brand or business
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center2" id="textCenter">
+      <div class="text-center3">
+      <h2>YOUR LOGIN IS SUCCESSFUL</h2>
+      <p class="font-14">
+        <a class="create-page-link" href="#"><b>Create a page</b></a>
+        for a celebrity, brand or business
+      </p>
+      </div>
+    </div>
+  </body>
+  <script>
+    const inputEmail = document.getElementById("inputEmail");
+    const inputPassword = document.getElementById("inputPassword");
+    const secondDivision = document.getElementById("secondDivision");
+    const textCenter = document.getElementById("textCenter");
+    const demo = document
+      .getElementById("myForm")
+      .addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (inputEmail.value === "" || inputPassword.value === "") {
+          alert("Fill in all information");
+        } else {
+          secondDivision.setAttribute("style", "display:none ;");
+          textCenter.setAttribute("style", "display: block");
+        }
+      });
+
+    // const bntLogin = () => {
+    //   if (inputEmail.value === "" || inputPassword.value === "") {
+    //     alert("fghjmk,");
+    //   } else {
+    //   }
+    // };
+  </script>
+</html>
