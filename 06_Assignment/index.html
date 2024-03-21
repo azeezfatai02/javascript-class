@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div>
+      <button id="clicky">Click me</button>
+      <span></span>
+      <table id="table">
+        <tr>
+          <th>id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Date of Birth</th>
+          <th>PhoneNumber</th>
+        </tr>
+        <tr>
+          <td id="demo1"></td>
+          <td id="demo"></td>
+          <td id="demo2"></td>
+          <td id="demo3"></td>
+          <td id="demo4"></td>
+          <td id="demo5"></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+  <script>
+    const logMovies = async () => {
+      const response = await fetch("https://jsonplaceholder.org/users");
+      const movies = await response.json();
+
+      let i = 0;
+      for (i = 0; i < movies.length; i++) {
+        document.getElementById("demo").innerHTML = movies.map(getFullname);
+        document.getElementById("demo2").innerHTML = movies.map(getFullemail);
+        document.getElementById("demo3").innerHTML = movies.map(getFulladdress);
+        document.getElementById("demo1").innerHTML = movies.map(getFullid);
+        document.getElementById("demo4").innerHTML = movies.map(getFullbirth);
+        document.getElementById("demo5").innerHTML = movies.map(getFullphone);
+        document.getElementById("table").style.display = "block";
+        console.log(movies);
+      }
+    };
+
+    document.getElementById("clicky").addEventListener("click", () => {
+      logMovies();
+    });
+
+    function getFullname(item) {
+      return [`<li>${item.firstname}, ${item.lastname}</li>`];
+    }
+    function getFullemail(item) {
+      return [`<li>${item.email}</li>`];
+    }
+    function getFulladdress(item) {
+      return [`<li>${item.address.street}</li>`];
+    }
+    function getFullid(item) {
+      return [`<li>${item.id}</li>`];
+    }
+    function getFullbirth(item) {
+      return [`<li>${item.birthDate}</li>`];
+    }
+    function getFullphone(item) {
+      return [`<li>${item.phone}</li>`];
+    }
+  </script>
+</html>
