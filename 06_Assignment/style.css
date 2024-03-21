@@ -4,9 +4,9 @@ ul{
 li{
     list-style: none;
 }
- tr:nth-child(odd) td {
+ /* tr:nth-child(odd) td {
     background: green
-}
+} */
 tr:nth-child(even)td {
     background: black
 }
